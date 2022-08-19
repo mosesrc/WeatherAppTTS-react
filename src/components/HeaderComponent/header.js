@@ -6,8 +6,8 @@ function Header() {
   return (
     <div className='container-fluid header'>
       <div className='row'>
-        <div className='col-4'>
-          <AppTitle />
+        <div className='col'>
+          <AppTitle className='img-fluid' />
         </div>
       </div>
     </div>
