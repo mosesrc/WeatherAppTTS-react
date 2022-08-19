@@ -1,4 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700&display=swap");
+
+/* IDs */
+#emailHelp {
+  text-align: right;
+}
+
+#selectGroup {
+  /* padding: 0; */
+}
+
+/* Elements */
+input {
+  height: 48px;
+}
+
+/* Classes */
 
 .account-form {
   height: 517px;
@@ -11,8 +27,15 @@
 /* CSS for inside the form */
 .block-one h3 {
   color: #fff;
+  font-weight: 600;
+}
+
+.block-one p {
+  font-size: 14px;
 }
 
 .block-two p {
   color: #fff;
+  font-size: 20px;
+  font-weight: 700;
 }
