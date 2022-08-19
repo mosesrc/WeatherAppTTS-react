@@ -1,10 +1,15 @@
 import React from "react";
 import "./header.css";
+import { ReactComponent as AppTitle } from "../../assets/svg/AppTitle.svg";
 
 function Header() {
   return (
-    <div>
-      <h1>I am the Header</h1>
+    <div className='container-fluid header'>
+      <div className='row'>
+        <div className='col-4'>
+          <AppTitle />
+        </div>
+      </div>
     </div>
   );
 }
