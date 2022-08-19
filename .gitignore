@@ -11,9 +11,6 @@
 # production
 /build
 
-# architexture
-.fig
-
 # misc
 .DS_Store
 .env.local
