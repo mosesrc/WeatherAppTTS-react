@@ -111,18 +111,24 @@ function NewAccountForm() {
               Submit
             </button>
           </div>
-          <div className='block-six col-6'>
+          <div className='block-six text-center col-6 show-border'>
             <h4>OR</h4>
             <p>Sign up using</p>
-            <div>
-              <button>
-                <GoogleIcon />
-                <span>Google</span>
-              </button>
-              <button>
-                <FacebookIcon />
-                <span>Facebook</span>
-              </button>
+            <div className='row'>
+              <div className='col show-border'>
+                <button className='btn btn-secondary social-btns'>
+                  <div className='show-border d-inline'>
+                    <GoogleIcon className='me-2' />
+                    <span>Google</span>
+                  </div>
+                </button>
+              </div>
+              <div className='col show-border'>
+                <button className='btn btn-secondary social-btns'>
+                  <FacebookIcon className='' />
+                  <span>Facebook</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
