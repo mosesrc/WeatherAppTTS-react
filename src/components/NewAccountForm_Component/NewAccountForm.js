@@ -19,15 +19,15 @@ function NewAccountForm() {
             <h3>Create Account</h3>
             <p>Sign up to get started</p>
           </div>
-          <div className='block-two col-6'>
-            <p>
+          <div className='block-two d-flex flex-column justify-content-end col-6'>
+            <p className='rotate'>
               Already have an account? &nbsp;
               <span>
                 <a href='#'>Login</a>
               </span>
             </p>
           </div>
-          <div className='block-three col-6'>
+          <div className='block-three mt-2 col-6'>
             <div>
               <label htmlFor='nameInput' className='form-label'>
                 Name
@@ -67,7 +67,7 @@ function NewAccountForm() {
               </div>
             </div>
           </div>
-          <div className='block-four col-6'>
+          <div className='block-four mt-2 col-6'>
             <div>
               <label htmlFor='exampleInputEmail1' className='form-label'>
                 Email address
@@ -106,27 +106,29 @@ function NewAccountForm() {
               </div>
             </div>
           </div>
-          <div className='block-five col-6'>
-            <button type='submit' className='btn btn-primary'>
-              Submit
+          <div className='block-five mt-4 col-6'>
+            <button type='submit' className='btn btn-primary mt-4 w-100 h-50'>
+              Create Account
             </button>
           </div>
-          <div className='block-six text-center col-6 show-border'>
+          <div className='block-six mt-4 text-center col-6'>
             <h4>OR</h4>
             <p>Sign up using</p>
             <div className='row'>
-              <div className='col show-border'>
+              <div className='col'>
                 <button className='btn btn-secondary social-btns'>
-                  <div className='show-border d-inline'>
+                  <div className='d-flex justify-content-center'>
                     <GoogleIcon className='me-2' />
                     <span>Google</span>
                   </div>
                 </button>
               </div>
-              <div className='col show-border'>
+              <div className='col'>
                 <button className='btn btn-secondary social-btns'>
-                  <FacebookIcon className='' />
-                  <span>Facebook</span>
+                  <div className='d-flex justify-content-center'>
+                    <FacebookIcon className='me-2' />
+                    <span>Facebook</span>
+                  </div>
                 </button>
               </div>
             </div>
