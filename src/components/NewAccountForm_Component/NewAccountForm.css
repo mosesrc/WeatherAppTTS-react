@@ -17,10 +17,10 @@ input {
 /* Classes */
 
 .account-form {
-  height: 517px;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   margin: 50px auto;
+  padding: 20px;
   background-color: #95e282;
 }
 
@@ -38,6 +38,19 @@ input {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
+}
+
+.block-four {
+  margin-bottom: 23px;
+}
+
+.block-five {
+  min-width: 386px;
+  min-height: 120px;
+}
+
+.block-five .button {
+  height: 56px;
 }
 
 .block-six {
