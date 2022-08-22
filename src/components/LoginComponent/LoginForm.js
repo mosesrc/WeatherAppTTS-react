@@ -10,13 +10,13 @@ import { ReactComponent as FacebookIcon } from "../../assets/svg/form_icons/face
 
 function LoginForm() {
   return (
-    <div className='container w-25 login-form rounded-4'>
+    <div className='container w-25 mb-5 login-form rounded-4'>
       <div className='row d-flex flex-column'>
         <div className='col'>
           <h3>Login</h3>
           <p>Login to get started</p>
         </div>
-        <div className='col'>
+        <div className='col mb-4 text-white'>
           <label htmlFor='exampleInputEmail1' className='form-label'>
             Email address
           </label>
@@ -33,7 +33,7 @@ function LoginForm() {
             />
           </div>
         </div>
-        <div className='col'>
+        <div className='col text-white'>
           <label htmlFor='passwordInput' className='form-label'>
             Password
           </label>
@@ -52,22 +52,26 @@ function LoginForm() {
             </button>
           </div>
         </div>
-        <div className='col'>
+        <div className='col text-end'>
           <a href='#'>Forgot Password?</a>
         </div>
-        <div className='col'>
-          <button>Login</button>
+        <div className='col d-flex justify-content-center login-div'>
+          <button type='button' className='btn' id='loginBtn'>
+            Login
+          </button>
         </div>
-        <div className='col'>
-          <a href='#'>Create Account</a>
+        <div className='col text-center'>
+          <a href='#' className='link-light'>
+            Create Account
+          </a>
         </div>
-        <div className='col'>
+        <div className='col mt-4 text-center'>
           <h4>OR</h4>
         </div>
-        <div className='col'>
+        <div className='col text-center'>
           <p>Sign in using</p>
         </div>
-        <div className='col'>
+        <div className='col d-flex justify-content-around'>
           <button className='btn btn-secondary social-btns'>
             <div className='d-flex justify-content-center'>
               <GoogleIcon className='me-2' />
