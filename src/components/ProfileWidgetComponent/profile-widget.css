@@ -1,0 +1,18 @@
+.profile-widget {
+  position: absolute;
+  left: 80vw;
+  top: -18vh;
+  min-width: 284px;
+  min-height: 89px;
+  font-family: "Lexend", sans-serif;
+}
+
+.profile-pic {
+  height: 100px;
+  width: 100px;
+}
+
+/* Utilities */
+.show-border {
+  border-top: 1px solid yellow;
+}

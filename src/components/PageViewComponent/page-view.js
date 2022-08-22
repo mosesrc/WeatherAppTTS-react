@@ -4,6 +4,9 @@ import "./page-view.css";
 // 📝: VIEWS
 import ListView from "../ListComponent/list-view";
 
+// 📝: Other components
+import ProfileWidget from "../ProfileWidgetComponent/profile-widget";
+
 function PageView() {
   // 📝: Empty list Message
   const emptyList = () => {
@@ -16,13 +19,14 @@ function PageView() {
   };
 
   return (
-    <div className='container-fluid page-view'>
+    <div className='container-fluid page-view position-relative'>
       <div className='row pt-4 d-flex justify-content-center'>
         <div className='col-4 p-4 list-block rounded-4'>
           <ListView />
         </div>
         <div className='col-8 view-block rounded-4'>{emptyList()}</div>
       </div>
+      <ProfileWidget />
     </div>
   );
 }
