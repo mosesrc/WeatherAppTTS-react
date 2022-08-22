@@ -3,11 +3,11 @@ import "./toggle-buttons.css";
 
 function ToggleButtons() {
   return (
-    <div class='btn-group' role='group' aria-label='Basic example'>
-      <button type='button' class='btn btn-primary toggle-buttons'>
+    <div className='btn-group' role='group' aria-label='Basic example'>
+      <button type='button' className='btn btn-primary toggle-buttons'>
         Week
       </button>
-      <button type='button' class='btn btn-primary toggle-buttons'>
+      <button type='button' className='btn btn-primary toggle-buttons'>
         Daily
       </button>
     </div>

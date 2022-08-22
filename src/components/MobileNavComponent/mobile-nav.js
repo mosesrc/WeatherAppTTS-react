@@ -23,15 +23,15 @@ function MobileNav() {
   };
 
   return (
-    <div className='container mobile-nav show-border'>
+    <div className='container d-md-none mobile-nav show-border'>
       <div className='row d-flex flex-column'>
         <div className='col text-end mb-5'>
           <MenuClose />
         </div>
-        <div className='col'>
+        <div className='col mb-5'>
           <ProfileWidget />
         </div>
-        <div className='col'>
+        <div className='col mb-5'>
           <ListView />
         </div>
         <div className='col'>{navEmptyMessage()}</div>
