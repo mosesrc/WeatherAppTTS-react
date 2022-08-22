@@ -8,7 +8,7 @@ function PageView() {
   // 📝: Empty list Message
   const emptyList = () => {
     return (
-      <div>
+      <div className='empty-message text-center'>
         <p>There are no cites in User's list</p>
         <p>User must search and select a city to view weather information</p>
       </div>
