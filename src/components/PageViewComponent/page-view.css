@@ -1,6 +1,17 @@
 .page-view {
-  height: 100vh;
+  min-height: 80vh;
   background-color: rgb(190, 247, 254);
+}
+
+/* Blocks for Page View */
+.list-block {
+  min-height: 75vh;
+  max-width: 387px;
+  background-color: #1d59e1;
+}
+
+.view-block {
+  background-color: rgba(29, 89, 225, 0.64);
 }
 
 /* Utilities */
