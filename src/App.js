@@ -4,20 +4,29 @@ import Header from "./components/HeaderComponent/header";
 import Footer from "./components/FooterComponent/Footer";
 import NewAccountForm from "./components/NewAccountForm_Component/NewAccountForm";
 import LoginForm from "./components/LoginComponent/LoginForm";
+import PageView from "./components/PageViewComponent/page-view";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Header />
-        <div>
-          <NewAccountForm />
-          <LoginForm />
-        </div>
-        <Footer />
+        <PageView />
       </div>
     );
   }
 }
 
 export default App;
+
+/* ---📌 COMMENT---: Just for production purposes  */
+// ✅: Sign up And Login Forms
+/*
+        <div>
+          <NewAccountForm />
+          <LoginForm />
+        </div>
+ */
+
+// ✅: Footer
+// <Footer />

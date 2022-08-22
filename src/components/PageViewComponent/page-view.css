@@ -1,0 +1,9 @@
+.page-view {
+  background-color: rgb(190, 247, 254);
+}
+
+/* Utilities */
+
+.show-border {
+  border: 1px solid yellow;
+}
