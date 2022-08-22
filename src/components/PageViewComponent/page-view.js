@@ -3,6 +3,9 @@ import "./page-view.css";
 
 // 📝: VIEWS
 import ListView from "../ListComponent/list-view";
+import ToggleButtons from "../ToggleButtonsComponent/toggle-buttons";
+
+// 📝: Other components
 
 function PageView() {
   // 📝: Empty list Message
@@ -22,7 +25,14 @@ function PageView() {
           <ListView />
         </div>
         <div className='col-sm-8 col-11 view-block rounded-4'>
-          {emptyList()}
+          <div className='row'>
+            <div className='col mt-1 d-none d-md-flex d-flex justify-content-center'>
+              <ToggleButtons />
+            </div>
+          </div>
+          <div className='row mt-3'>
+            <div className='col'>{emptyList()}</div>
+          </div>
         </div>
       </div>
     </div>
