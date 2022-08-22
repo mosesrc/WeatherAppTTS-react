@@ -12,7 +12,7 @@ function LoginForm() {
   return (
     <div className='container w-25 mb-5 login-form rounded-4'>
       <div className='row d-flex flex-column'>
-        <div className='col'>
+        <div className='col mb-4'>
           <h3>Login</h3>
           <p>Login to get started</p>
         </div>
