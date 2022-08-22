@@ -1,15 +1,13 @@
 .profile-widget {
-  position: absolute;
-  left: 80vw;
-  top: -18vh;
-  min-width: 284px;
-  min-height: 89px;
   font-family: "Lexend", sans-serif;
+  font-size: 16px;
 }
 
 .profile-pic {
-  height: 100px;
-  width: 100px;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /* Utilities */
