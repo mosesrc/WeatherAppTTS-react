@@ -9,7 +9,7 @@ function DailyView() {
   const weatherObj = {
     name: "Newport News",
     state: "VA",
-    date: null,
+    date: Date.now(),
     zipCode: null,
     temperature: 75,
     tempDescription: "Sunny",
@@ -17,7 +17,7 @@ function DailyView() {
     windSpeed: 13,
   };
 
-  const arr = [1, 2, 3, 4, 5, , 6];
+  const arr = [1, 2, 3, 4, 5, 6];
 
   const [city, setCity] = useState(weatherObj);
 

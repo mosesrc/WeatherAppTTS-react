@@ -5,6 +5,7 @@ import "./page-view.css";
 import ListView from "../ListComponent/list-view";
 import ToggleButtons from "../ToggleButtonsComponent/toggle-buttons";
 import DailyView from "../DailyViewComponent/daily-view";
+import WeeklyView from "../WeeklyViewComponent/weekly-view";
 
 // 📝: Other components
 
@@ -31,8 +32,9 @@ function PageView() {
               <ToggleButtons />
             </div>
           </div>
-          <div className='row d-flex flex-column align-items-center mt-3'>
-            <DailyView />
+          <div className='row d-flex align-items-center mt-3'>
+            <WeeklyView />
+            {/* <DailyView /> */}
             <div className='col d-none'>{emptyList()}</div>
           </div>
         </div>
@@ -42,3 +44,5 @@ function PageView() {
 }
 
 export default PageView;
+
+// <div className='row d-flex flex-column align-items-center mt-3'>
