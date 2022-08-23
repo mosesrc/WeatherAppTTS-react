@@ -12,12 +12,12 @@ function ProfileWidget() {
   }, [myImg]);
 
   return (
-    <div className='container profile-widget d-flex justify-content-evenly align-items-end me-2 show-border'>
-      <div className='row d-flex '>
-        <div className='col-sm-8 order-sm-0 order-1'>
-          <p className='mb-0'>Hello, {userName}!</p>
+    <div className='container profile-widget d-flex justify-content-evenly align-items-end me-2'>
+      <div className='row d-flex gx-1 flex-grow-1'>
+        <div className='col-sm-9 d-flex order-sm-0 order-1'>
+          <p className='mb-0 align-self-end text-nowrap'>Hello, {userName}!</p>
         </div>
-        <div className='col-sm-4 order-sm-1'>
+        <div className='col-sm-3 order-sm-1'>
           <div className='rounded-circle'>
             <img src={userPic} alt='User Profile Pic' className='profile-pic' />
           </div>
