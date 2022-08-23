@@ -13,6 +13,8 @@ class App extends Component {
       <div className='position-relative'>
         <MobileNav />
         <Header />
+        <NewAccountForm />
+        <LoginForm />
         <PageView />
       </div>
     );
