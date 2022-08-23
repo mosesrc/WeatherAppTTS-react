@@ -1,6 +1,6 @@
 import React from "react";
 import "./LoginForm.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // 📝: ICONS
 import { ReactComponent as EmailIcon } from "../../assets/svg/form_icons/mail-open-line.svg";
@@ -10,6 +10,14 @@ import { ReactComponent as GoogleIcon } from "../../assets/svg/form_icons/google
 import { ReactComponent as FacebookIcon } from "../../assets/svg/form_icons/facebook-fill.svg";
 
 function LoginForm() {
+  // 📝: Redirect to Page view via Login button
+  const navigate = useNavigate();
+
+  const navigateToPageView = () => {
+    // NOTE: 👇 navigating to Page View
+    navigate("/page_view");
+  };
+
   return (
     <div className='container w-25 mt-5 mb-5 login-form rounded-4'>
       <div className='row d-flex flex-column'>
@@ -57,7 +65,12 @@ function LoginForm() {
           <a href='#'>Forgot Password?</a>
         </div>
         <div className='col d-flex justify-content-center login-div'>
-          <button type='button' className='btn' id='loginBtn'>
+          <button
+            type='button'
+            onClick={navigateToPageView}
+            className='btn'
+            id='loginBtn'
+          >
             Login
           </button>
         </div>

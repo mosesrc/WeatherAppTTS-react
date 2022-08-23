@@ -16,7 +16,11 @@ class App extends Component {
         <Header />
         <Routes>
           <Route exact path='/' element={<LoginForm />} />
-          <Route path='create_account' element={<NewAccountForm />} />
+          <Route path='/create_account' element={<NewAccountForm />} />
+          <Route path='/page_view' element={<PageView />}>
+            <Route path='/page_view/weekly_view' element />
+            <Route path='/page_view/daily_view' element />
+          </Route>
         </Routes>
         <Footer />
       </div>

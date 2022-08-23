@@ -1,6 +1,8 @@
 import React from "react";
 import "./NewAccountForm.css";
 
+import { Link, useNavigate } from "react-router-dom";
+
 // 📝: ICONS
 import { ReactComponent as UserIcon } from "../../assets/svg/form_icons/user-icon.svg";
 import { ReactComponent as EmailIcon } from "../../assets/svg/form_icons/mail-open-line.svg";
@@ -11,6 +13,14 @@ import { ReactComponent as GoogleIcon } from "../../assets/svg/form_icons/google
 import { ReactComponent as FacebookIcon } from "../../assets/svg/form_icons/facebook-fill.svg";
 
 function NewAccountForm() {
+  // 📝: Redirect to Page view via Create Account button
+  const navigate = useNavigate();
+
+  const navigateToPageView = () => {
+    // NOTE: 👇 navigating to Page View
+    navigate("/page_view");
+  };
+
   return (
     <div className='container rounded-4 w-50 account-form'>
       <form>
@@ -23,7 +33,7 @@ function NewAccountForm() {
             <p className='rotate'>
               Already have an account? &nbsp;
               <span>
-                <a href='#'>Login</a>
+                <Link to='/'>Login</Link>
               </span>
             </p>
           </div>
@@ -107,7 +117,11 @@ function NewAccountForm() {
             </div>
           </div>
           <div className='block-five order-3 col-12 col-lg-6'>
-            <button type='submit' className='btn btn-primary w-100 h-50 mt-4'>
+            <button
+              type='submit'
+              onClick={navigateToPageView}
+              className='btn btn-primary w-100 h-50 mt-4'
+            >
               Create Account
             </button>
           </div>
