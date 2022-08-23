@@ -16,25 +16,32 @@ function DailyView() {
   const [city, setCity] = useState(weatherObj);
 
   return (
-    <div className='container w-50 daily-view'>
-      <div className='row d-flex flex-column show-border'>
-        <div className='col'>
-          <p>{city.name}</p>
+    <div className='col-md-11 d-flex justify-content-center align-items-center daily-view p-0 show-border'>
+      <div className='container w-75 main-holder-info'>
+        <div className='row d-flex flex-column main-text show-border'>
+          <div className='col p-0 show-border'>
+            <p>
+              {city.name}, {city.state}
+            </p>
+          </div>
+          <div className='col p-0 show-border'>
+            <p>{city.temperature}</p>
+          </div>
+          <div className='col p-0 show-border'>
+            <p>
+              {city.tempDescription} <i class='bi bi-brightness-high'></i>
+            </p>
+          </div>
         </div>
-        <div className='col'>
-          <p>{city.temperature}</p>
+        <div className='row d-flex flex-column secondary-text mt-5 show-border'>
+          <div className='col p-0'>
+            <p>Humidity: {city.humidity}%</p>
+          </div>
+          <div className='col p-0'>
+            <p>Wind Speed: {city.windSpeed} km/h</p>
+          </div>
         </div>
-        <div className='col'>
-          <p>{city.tempDescription}</p>
-        </div>
-      </div>
-      <div className='row d-flex flex-column show-border'>
-        <div className='col'>
-          <p>Humidity: {city.humidity}</p>
-        </div>
-        <div className='col'>
-          <p>Wind Speed: {city.windSpeed} km/h</p>
-        </div>
+        <div className='row'></div>
       </div>
     </div>
   );

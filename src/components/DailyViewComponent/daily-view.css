@@ -1,5 +1,31 @@
 .daily-view {
+  color: rgba(242, 251, 255, 0.7);
   background-color: #42bbff;
+  border-radius: 100px;
+  height: 80vh;
+  margin-bottom: 16px;
+  font-family: "Rubik", sans-serif;
+}
+
+.main-holder-info {
+}
+
+.main-text {
+  font-size: 36px;
+  line-height: 43px;
+}
+
+.main-text p {
+  margin: 0px;
+}
+
+.secondary-text {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.secondary-text p {
+  margin: 0px;
 }
 
 /* Utilities */

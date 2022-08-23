@@ -31,10 +31,9 @@ function PageView() {
               <ToggleButtons />
             </div>
           </div>
-          <div className='row mt-3'>
+          <div className='row d-flex flex-column align-items-center mt-3'>
             <DailyView />
-
-            <div className='col'>{emptyList()}</div>
+            <div className='col d-none'>{emptyList()}</div>
           </div>
         </div>
       </div>
