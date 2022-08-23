@@ -1,9 +1,6 @@
 import React from "react";
 import "./city-badge.css";
 
-// 📝: ICONS
-import { ReactComponent as ArrowRight } from "../../assets/svg/form_icons/Forward-arrow.svg";
-
 function CityBadge() {
   return (
     <div className='col city-badge d-flex justify-content-evenly align-items-center mt-3 show-border'>

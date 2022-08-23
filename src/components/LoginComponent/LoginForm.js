@@ -1,5 +1,6 @@
 import React from "react";
 import "./LoginForm.css";
+import { Link } from "react-router-dom";
 
 // 📝: ICONS
 import { ReactComponent as EmailIcon } from "../../assets/svg/form_icons/mail-open-line.svg";
@@ -10,7 +11,7 @@ import { ReactComponent as FacebookIcon } from "../../assets/svg/form_icons/face
 
 function LoginForm() {
   return (
-    <div className='container w-25 mb-5 login-form rounded-4'>
+    <div className='container w-25 mt-5 mb-5 login-form rounded-4'>
       <div className='row d-flex flex-column'>
         <div className='col mb-4'>
           <h3>Login</h3>
@@ -61,9 +62,9 @@ function LoginForm() {
           </button>
         </div>
         <div className='col text-center'>
-          <a href='#' className='link-light'>
+          <Link to='/create_account' className='link-light'>
             Create Account
-          </a>
+          </Link>
         </div>
         <div className='col mt-4 text-center'>
           <h4>OR</h4>

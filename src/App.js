@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
 import Header from "./components/HeaderComponent/header";
 import Footer from "./components/FooterComponent/Footer";
 import NewAccountForm from "./components/NewAccountForm_Component/NewAccountForm";
@@ -11,11 +13,12 @@ class App extends Component {
   render() {
     return (
       <div className='position-relative'>
-        <MobileNav />
         <Header />
-        <NewAccountForm />
-        <LoginForm />
-        <PageView />
+        <Routes>
+          <Route exact path='/' element={<LoginForm />} />
+          <Route path='create_account' element={<NewAccountForm />} />
+        </Routes>
+        <Footer />
       </div>
     );
   }
@@ -34,3 +37,10 @@ export default App;
 
 // ✅: Footer
 // <Footer />
+
+// ✅: Other Completed components
+/*
+<MobileNav />
+<PageView />
+<NewAccountForm />
+*/
