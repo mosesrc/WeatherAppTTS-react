@@ -1,0 +1,8 @@
+.daily-view {
+  background-color: #42bbff;
+}
+
+/* Utilities */
+.show-border {
+  border: 1px solid yellow;
+}

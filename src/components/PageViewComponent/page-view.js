@@ -4,6 +4,7 @@ import "./page-view.css";
 // 📝: VIEWS
 import ListView from "../ListComponent/list-view";
 import ToggleButtons from "../ToggleButtonsComponent/toggle-buttons";
+import DailyView from "../DailyViewComponent/daily-view";
 
 // 📝: Other components
 
@@ -31,6 +32,8 @@ function PageView() {
             </div>
           </div>
           <div className='row mt-3'>
+            <DailyView />
+
             <div className='col'>{emptyList()}</div>
           </div>
         </div>
