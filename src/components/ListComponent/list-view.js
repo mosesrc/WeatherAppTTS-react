@@ -14,13 +14,6 @@ function ListView(props) {
   const [weatherObj, setWeatherObj] = useState({});
   const [citiesArray, setCitiesArray] = useState([]);
 
-  // 📝: UseEffect Hook
-  let inputText = '';
-  let data = {};
-  useEffect(() => {
-    setValue(inputText);
-  }, [inputText]);
-
   // NOTE:: Getting Location Object No Weather Data Yet
   async function getLocation(cityName) {
     const response = await fetch(
@@ -36,7 +29,7 @@ function ListView(props) {
       config.currentWeatherUrl + `lat=${obj.lat}&lon=${obj.lon}&appid=${config.apiKey}`
     );
     const json = await response.json();
-    data = json;
+    setWeatherObj(json);
     return json;
   }
 
@@ -45,17 +38,16 @@ function ListView(props) {
     const targetData = getLocation(event.target.value);
     const item = targetData.then(data => getCurrentWeather(data));
     console.log(item);
-    inputText = event.target.value.trim();
-
-    console.log(value);
-    console.log(weatherObj);
+    setValue(event.target.value);
   };
 
-  // 📝: Submits Searched City into state
-  const handleSubmit = evt => {
-    console.log(evt.code);
+  // console.log(value);
+  // console.log(weatherObj);
 
-    console.log(props.citiesArray);
+  // 📝: Submits Searched City into state
+  const handleSubmit = () => {
+    setCitiesArray(() => citiesArray.push(weatherObj));
+    console.log(citiesArray);
   };
 
   return (
@@ -65,7 +57,7 @@ function ListView(props) {
           <input
             type="text"
             className="form-control"
-            value={props.value}
+            value={value}
             onChange={handleInput}
             list="datalistOptions"
             id="exampleDataList"
