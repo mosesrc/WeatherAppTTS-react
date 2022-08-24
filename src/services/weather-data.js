@@ -1,3 +1,29 @@
-"use strict";
+export const getWeatherData = () => {
+  const apiKey = process.env.REACT_APP_API_KEY;
 
-const getWeatherData = () => {};
+  const search = {
+    name: "Newport News",
+    state: "Va",
+    zipCode: 23608,
+    limit: 5,
+  };
+};
+
+//  // NOTE: Coordinates by zip/post code
+//  fetch(
+//     "http://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API key}"
+//   );
+
+//   // NOTE: Coordinates by location name
+//   fetch(
+//     `http://api.openweathermap.org/geo/1.0/direct?q=${"Newport News"}&limit=${5}&appid=${apiKey}`
+//   )
+//     .then((res) => res.json())
+//     .then((data) => console.log(data));
+
+//   // NOTE: Call Current Weather Data
+//   fetch(
+//     ` https://api.openweathermap.org/data/2.5/weather?lat=${cities[0].lat}&lon=${cities[0].lon}&appid=${apiKey}`
+//   )
+//     .then((res) => res.json())
+//     .then((data) => console.log(data));
