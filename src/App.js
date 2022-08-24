@@ -1,27 +1,26 @@
-import React, { Component } from "react";
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import React, { Component } from 'react';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
 // 📝: FETCHES
-import { getWeatherData } from "./services/weather-data";
 
 // 📝: COMPONENTS
-import Header from "./components/HeaderComponent/header";
-import Footer from "./components/FooterComponent/Footer";
-import NewAccountForm from "./components/NewAccountForm_Component/NewAccountForm";
-import LoginForm from "./components/LoginComponent/LoginForm";
-import PageView from "./components/PageViewComponent/page-view";
-import MobileNav from "./components/MobileNavComponent/mobile-nav";
+import Header from './components/HeaderComponent/header';
+import Footer from './components/FooterComponent/Footer';
+import NewAccountForm from './components/NewAccountForm_Component/NewAccountForm';
+import LoginForm from './components/LoginComponent/LoginForm';
+import PageView from './components/PageViewComponent/page-view';
+// import MobileNav from './components/MobileNavComponent/mobile-nav';
 
 class App extends Component {
   render() {
     return (
-      <div className='position-relative'>
+      <div className="position-relative">
         <Header />
         <Routes>
-          <Route exact path='/' element={<LoginForm />} />
-          <Route path='/create_account' element={<NewAccountForm />} />
-          <Route path='/page_view/*' element={<PageView />} />
+          <Route exact path="/" element={<LoginForm />} />
+          <Route path="/create_account" element={<NewAccountForm />} />
+          <Route path="/page_view/*" element={<PageView />} />
         </Routes>
         <Footer />
       </div>

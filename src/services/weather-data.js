@@ -1,13 +1,4 @@
-export const getWeatherData = () => {
-  const apiKey = process.env.REACT_APP_API_KEY;
-
-  const search = {
-    name: "Newport News",
-    state: "Va",
-    zipCode: 23608,
-    limit: 5,
-  };
-};
+export const getWeatherData = () => {};
 
 //  // NOTE: Coordinates by zip/post code
 //  fetch(
