@@ -1,2 +1,17 @@
-export const BASE_URL = process.env.REACT_APP_BASE_URL;
-export const API_KEY = process.env.REACT_APP_API_KEY;
+export const config = {
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
+  currentWeatherUrl: `${process.env.REACT_APP_CURRENT_WEATHER_URL}`,
+  byLocationUrl: `${process.env.REACT_APP_GEOCODING_URL}`,
+  byZipCodeUrl: `${process.env.REACT_APP_GEOCODING_URL}`,
+};
+
+//prettier-ignore
+/* ---📌 COMMENT--- Extended URLs:   */
+// NOTE: currentWeatherUrl
+// lat={lat}&lon={lon}&appid={API key}
+
+// NOTE: byLocationUrl
+// direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+
+// NOTE: byZipCodeUrl
+// zip?zip={zip code},{country code}&appid={API key}
