@@ -1,5 +1,6 @@
 import React from "react";
 import "./page-view.css";
+import { useLocation, Routes, Route } from "react-router-dom";
 
 // 📝: VIEWS
 import ListView from "../ListComponent/list-view";
@@ -9,7 +10,11 @@ import WeeklyView from "../WeeklyViewComponent/weekly-view";
 
 // 📝: Other components
 
-function PageView() {
+function PageView(props) {
+  // 📝: Path Locations
+  const pathName = useLocation().pathname;
+  console.log(pathName);
+
   // 📝: Empty list Message
   const emptyList = () => {
     return (
@@ -33,11 +38,9 @@ function PageView() {
             </div>
           </div>
           <div className='row d-flex justify-content-center align-items-center mt-3'>
-            {/* <WeeklyView /> */}
-            {/* <DailyView /> */}
-            <WeeklyView />
-            <DailyView />
-            <div className='col d-none'>{emptyList()}</div>
+            {pathName.includes("weekly_view") ? <WeeklyView /> : <div />}
+            {pathName.includes("daily_view") ? <DailyView /> : <div />}
+            <div className='col'>{emptyList()}</div>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { ReactComponent as SunIcon } from "../../assets/svg/form_icons/sun-dynam
 
 function WeeklyView(props) {
   const arr = [1, 2, 3, 4, 5, 6, 7];
+  console.log("Made it to weekly view!");
 
   return (
     <>
