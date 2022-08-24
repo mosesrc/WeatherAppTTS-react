@@ -1,8 +1,8 @@
 export const config = {
-  apiKey: `${process.env.REACT_APP_API_KEY}`,
-  currentWeatherUrl: `${process.env.REACT_APP_CURRENT_WEATHER_URL}`,
-  byLocationUrl: `${process.env.REACT_APP_GEOCODING_URL}`,
-  byZipCodeUrl: `${process.env.REACT_APP_GEOCODING_URL}`,
+  apiKey: process.env.REACT_APP_API_KEY,
+  currentWeatherUrl: process.env.REACT_APP_CURRENT_WEATHER_URL,
+  byLocationUrl: process.env.REACT_APP_GEOCODING_URL,
+  byZipCodeUrl: process.env.REACT_APP_GEOCODING_URL,
 };
 
 //prettier-ignore
