@@ -21,6 +21,7 @@ function PageView(props) {
 
   // 📝: Add State for input value
   const [value, setValue] = useState('');
+  const [specifiedLocation, setSpecifiedLocation] = useState({});
   const [weatherObj, setWeatherObj] = useState({});
   const [citiesArray, setCitiesArray] = useState([]);
 
@@ -34,23 +35,25 @@ function PageView(props) {
   // NOTE:: Getting Location Object No Weather Data Yet
   async function getLocation(str) {
     let [city, state] = str.split(', ');
-    if (state) state = state.toUpperCase();
-    console.log(state);
-    const stateCode = getStateCode(FIPScodes, state);
+    let currentLocation;
 
-    console.log(city, stateCode);
+    if (city) city = city[0].toUpperCase() + city.slice(1);
+
     const response = await fetch(
-      config.byLocationUrl + `direct?q=${city},${stateCode}&limit=${5}&appid=${config.apiKey}`
+      config.byLocationUrl + `direct?q=${city}&limit=${5}&appid=${config.apiKey}`
     );
-    const json = await response.json();
-    console.log('Location Object Found!');
-    // logic to match obj
-    return json;
+    const data = await response.json();
+
+    // 📝: LOGIC TO MATCH OBJ
+    if (state) {
+      currentLocation = data.find(item => item.state.toLowerCase() === state.toLowerCase());
+      setSpecifiedLocation(currentLocation);
+    }
+    return currentLocation;
   }
 
   // NOTE: Search for Current Weather
-  async function getCurrentWeather([obj]) {
-    console.log(obj);
+  async function getCurrentWeather(obj) {
     const response = await fetch(
       config.currentWeatherUrl + `lat=${obj.lat}&lon=${obj.lon}&appid=${config.apiKey}`
     );
@@ -60,14 +63,14 @@ function PageView(props) {
   }
 
   // 📝: Handles Search for City
-  const handleChange = event => {
+  async function handleChange(event) {
     // 📝: Event Delegation
     if (event.target.name === 'searchedInput') {
-      const targetData = getLocation(event.target.value);
-      targetData.then(data => console.log(data));
+      const targetData = await getLocation(event.target.value);
+      if (targetData) getCurrentWeather(targetData);
       setValue(event.target.value);
     }
-  };
+  }
 
   // 📝: Empty list Message
   const emptyList = () => {
@@ -79,13 +82,14 @@ function PageView(props) {
     );
   };
 
+  console.log(specifiedLocation);
   console.log(weatherObj);
 
   return (
     <div onChange={handleChange} className="container-fluid page-view position-relative">
       <div className="row pt-4 d-flex justify-content-center">
         <div className="col-4 d-none d-md-inline-block d-flex flex-column p-4 list-block rounded-4">
-          <ListView currentWeather={weatherObj} />
+          <ListView currentWeather={weatherObj} currLocation={specifiedLocation} />
         </div>
         <div className="col-sm-8 col-11 view-block rounded-4">
           <div className="row">
