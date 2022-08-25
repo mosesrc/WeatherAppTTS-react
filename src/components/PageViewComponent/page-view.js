@@ -12,6 +12,7 @@ import WeeklyView from '../WeeklyViewComponent/weekly-view';
 
 // 📝: DATA
 import { FIPScodes } from '../../data/city-list';
+import { countryCodes } from '../../data/country-codes';
 
 // 📝: Other components
 
@@ -25,19 +26,36 @@ function PageView(props) {
   const [weatherObj, setWeatherObj] = useState({});
   const [citiesArray, setCitiesArray] = useState([]);
 
-  // NOTE: Logic for finding state code
-  const getStateCode = (obj, str) => {
-    const arr = Object.keys(obj);
-    const code = arr.find(el => el === str);
-    return obj[code];
+  // NOTE: Logic for finding country codes is
+  const getCountryCode = (obj, str) => {
+    return obj.find(country => country.alphaTwo === str.toUpperCase());
   };
 
-  // NOTE:: Getting Location Object No Weather Data Yet
-  async function getLocation(str) {
+  // NOTE: Getting Location by zipcode
+  async function getLocationByZipCode(str) {
+    let [zipCode, country] = str.split(', ');
+    console.log(zipCode);
+
+    const { alphaTwo } = await getCountryCode(countryCodes, country);
+    console.log(alphaTwo);
+    const response = await fetch(
+      config.byZipCodeUrl + `zip?zip=${zipCode},${alphaTwo}&appid=${config.apiKey}`
+    );
+
+    const data = await response.json();
+    console.log(data);
+    setSpecifiedLocation(data);
+    return data;
+  }
+
+  // BUG: This function is killing me softly
+  // NOTE:: Getting Location by city and state
+  async function getLocationByCityState(str) {
     let [city, state] = str.split(', ');
     let currentLocation;
 
     if (city) city = city[0].toUpperCase() + city.slice(1);
+    // console.log('\nIn Fetch for city');
 
     const response = await fetch(
       config.byLocationUrl + `direct?q=${city}&limit=${5}&appid=${config.apiKey}`
@@ -46,8 +64,11 @@ function PageView(props) {
 
     // 📝: LOGIC TO MATCH OBJ
     if (state) {
-      currentLocation = data.find(item => item.state.toLowerCase() === state.toLowerCase());
-      setSpecifiedLocation(currentLocation);
+      console.log('\nStart If');
+      console.log(state);
+      currentLocation = await data.find(item => item.state.toLowerCase() === state.toLowerCase());
+      if (currentLocation) setSpecifiedLocation(currentLocation);
+      console.log('\nEnd If');
     }
     return currentLocation;
   }
@@ -62,11 +83,28 @@ function PageView(props) {
     return json;
   }
 
+  // 📝: Check whether search is city, state or zipcode, country or country
+  const searchCheck = str => {
+    let hasNumber = /\d/;
+    const result = hasNumber.test(str);
+    console.log(result);
+    return result;
+  };
+
   // 📝: Handles Search for City
   async function handleChange(event) {
+    let targetData = null;
+    const parentEl = event.target.offsetParent;
     // 📝: Event Delegation
-    if (event.target.name === 'searchedInput') {
-      const targetData = await getLocation(event.target.value);
+    if (event.target.name === 'sendCitySearch') {
+      if (searchCheck(parentEl.children[0].value)) {
+        console.log('In click Handler for zipcode');
+        targetData = await getLocationByZipCode(parentEl.children[0].value);
+      } else {
+        console.log('In click Handler for city/state');
+        targetData = await getLocationByCityState(parentEl.children[0].value);
+      }
+
       if (targetData) getCurrentWeather(targetData);
       setValue(event.target.value);
     }
@@ -82,11 +120,8 @@ function PageView(props) {
     );
   };
 
-  console.log(specifiedLocation);
-  console.log(weatherObj);
-
   return (
-    <div onChange={handleChange} className="container-fluid page-view position-relative">
+    <div onClick={handleChange} className="container-fluid page-view position-relative">
       <div className="row pt-4 d-flex justify-content-center">
         <div className="col-4 d-none d-md-inline-block d-flex flex-column p-4 list-block rounded-4">
           <ListView currentWeather={weatherObj} currLocation={specifiedLocation} />

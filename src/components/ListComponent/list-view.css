@@ -1,5 +1,9 @@
 .list-view {
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
+}
+
+button > * {
+  pointer-events: none;
 }
 
 /* Utilities */
