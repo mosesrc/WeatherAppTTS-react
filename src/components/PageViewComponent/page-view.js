@@ -48,7 +48,6 @@ function PageView(props) {
     return data;
   }
 
-  // BUG: This function is killing me softly
   // NOTE:: Getting Location by city and state
   async function getLocationByCityState(str) {
     let [city, state] = str.split(', ');
@@ -113,9 +112,11 @@ function PageView(props) {
   // 📝: Empty list Message
   const emptyList = () => {
     return (
-      <div className="empty-message text-center">
-        <p>There are no cites in User's list</p>
-        <p>User must search and select a city to view weather information</p>
+      <div className="col">
+        <div className="empty-message text-center">
+          <p>There are no cites in User's list</p>
+          <p>User must search and select a city to view weather information</p>
+        </div>
       </div>
     );
   };
@@ -135,7 +136,7 @@ function PageView(props) {
           <div className="row d-flex justify-content-center align-items-center mt-3">
             {pathName.includes('weekly_view') ? <WeeklyView /> : <div />}
             {pathName.includes('daily_view') ? <DailyView /> : <div />}
-            <div className="col">{emptyList()}</div>
+            {citiesArray.length === 0 ? emptyList() : <div />}
           </div>
         </div>
       </div>
