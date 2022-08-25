@@ -13,7 +13,7 @@ function CityBadge({ cities }) {
             key={idx}
           >
             <i className="bi bi-geo-alt"></i>
-            <p>{item.name}, </p>
+            <p>{item[0].name}, </p>
             <i className="bi bi-caret-right-fill arrow-icon"></i>
           </div>
         );

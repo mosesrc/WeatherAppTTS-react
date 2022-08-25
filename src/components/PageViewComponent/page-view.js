@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import './page-view.css';
 import { useLocation } from 'react-router-dom';
 // 📝: CONFIG FILE
@@ -14,9 +14,14 @@ import WeeklyView from '../WeeklyViewComponent/weekly-view';
 import { FIPScodes } from '../../data/city-list';
 import { countryCodes } from '../../data/country-codes';
 
-// 📝: Other components
+// ✅: SETTING CITIES ARRAY
+const initialState = { citiesArray: [] };
 
 function PageView(props) {
+  // ✅: USE REDUCER HOOK
+  const { citiesArray } = initialState;
+  const [state, dispatch] = useReducer(citiesReducer, citiesArray);
+
   // 📝: Path Locations
   const pathName = useLocation().pathname;
 
@@ -24,12 +29,22 @@ function PageView(props) {
   const [value, setValue] = useState('');
   const [specifiedLocation, setSpecifiedLocation] = useState({});
   const [weatherObj, setWeatherObj] = useState({});
-  const [citiesArray, setCitiesArray] = useState([]);
+  // const [citiesArray, setCitiesArray] = useState([]);
+
+  // ✅: REDUCER FUNCTION
+  function citiesReducer(state, action) {
+    switch (action.type) {
+      case 'ADD_CITY':
+        return { citiesArray: [...state, action.payload] };
+      default:
+        throw new Error('This is not working bruh!');
+    }
+  }
 
   // 📝: Using useEffect to load weather objects
   // useEffect(() => {
   //   setCitiesArray(arr => [...arr, [specifiedLocation, weatherObj]]);
-  // }, [specifiedLocation, weatherObj]);
+  // }, []);
 
   // NOTE: Logic for finding country codes is
   const getCountryCode = (obj, str) => {
@@ -81,7 +96,7 @@ function PageView(props) {
     );
     const json = await response.json();
     setWeatherObj(json);
-    setCitiesArray(arr => [...arr, [specifiedLocation, weatherObj]]);
+
     return json;
   }
 
@@ -97,10 +112,11 @@ function PageView(props) {
     event.stopPropagation();
     event.preventDefault();
 
+    // 📝: Event Delegation
     let targetData = null;
     const parentEl = event.target.offsetParent;
     const input = parentEl.children[0].value;
-    // 📝: Event Delegation
+
     if (event.target.name === 'sendCitySearch') {
       if (searchCheck(input)) {
         targetData = await getLocationByZipCode(input);
@@ -110,14 +126,18 @@ function PageView(props) {
 
       if (targetData) await getCurrentWeather(targetData);
       setValue(input);
-
-      console.log(specifiedLocation);
-      console.log(weatherObj);
+      dispatch({
+        type: 'ADD_CITY',
+        payload: [specifiedLocation, weatherObj],
+      });
     }
   }
 
   console.log('\nThis is the weather object which is a city item');
   console.log(weatherObj);
+
+  console.log('\nThis is the location object ');
+  console.log(specifiedLocation);
 
   console.log('\nThis is the cities array which is a list of cities');
   console.log(citiesArray);
