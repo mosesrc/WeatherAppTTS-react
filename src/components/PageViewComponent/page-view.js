@@ -26,6 +26,11 @@ function PageView(props) {
   const [weatherObj, setWeatherObj] = useState({});
   const [citiesArray, setCitiesArray] = useState([]);
 
+  // 📝: Using useEffect to load weather objects
+  // useEffect(() => {
+  //   setCitiesArray(arr => [...arr, [specifiedLocation, weatherObj]]);
+  // }, [specifiedLocation, weatherObj]);
+
   // NOTE: Logic for finding country codes is
   const getCountryCode = (obj, str) => {
     return obj.find(country => country.alphaTwo === str.toUpperCase());
@@ -63,11 +68,8 @@ function PageView(props) {
 
     // 📝: LOGIC TO MATCH OBJ
     if (state) {
-      console.log('\nStart If');
-      console.log(state);
       currentLocation = await data.find(item => item.state.toLowerCase() === state.toLowerCase());
       if (currentLocation) setSpecifiedLocation(currentLocation);
-      console.log('\nEnd If');
     }
     return currentLocation;
   }
@@ -79,6 +81,7 @@ function PageView(props) {
     );
     const json = await response.json();
     setWeatherObj(json);
+    setCitiesArray(arr => [...arr, [specifiedLocation, weatherObj]]);
     return json;
   }
 
@@ -86,28 +89,38 @@ function PageView(props) {
   const searchCheck = str => {
     let hasNumber = /\d/;
     const result = hasNumber.test(str);
-    console.log(result);
     return result;
   };
 
   // 📝: Handles Search for City
   async function handleChange(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
     let targetData = null;
     const parentEl = event.target.offsetParent;
+    const input = parentEl.children[0].value;
     // 📝: Event Delegation
     if (event.target.name === 'sendCitySearch') {
-      if (searchCheck(parentEl.children[0].value)) {
-        console.log('In click Handler for zipcode');
-        targetData = await getLocationByZipCode(parentEl.children[0].value);
+      if (searchCheck(input)) {
+        targetData = await getLocationByZipCode(input);
       } else {
-        console.log('In click Handler for city/state');
-        targetData = await getLocationByCityState(parentEl.children[0].value);
+        targetData = await getLocationByCityState(input);
       }
 
-      if (targetData) getCurrentWeather(targetData);
-      setValue(event.target.value);
+      if (targetData) await getCurrentWeather(targetData);
+      setValue(input);
+
+      console.log(specifiedLocation);
+      console.log(weatherObj);
     }
   }
+
+  console.log('\nThis is the weather object which is a city item');
+  console.log(weatherObj);
+
+  console.log('\nThis is the cities array which is a list of cities');
+  console.log(citiesArray);
 
   // 📝: Empty list Message
   const emptyList = () => {
@@ -122,10 +135,14 @@ function PageView(props) {
   };
 
   return (
-    <div onClick={handleChange} className="container-fluid page-view position-relative">
+    <div onClick={handleChange} className="container-fluid page-view position-relative pb-3">
       <div className="row pt-4 d-flex justify-content-center">
         <div className="col-4 d-none d-md-inline-block d-flex flex-column p-4 list-block rounded-4">
-          <ListView currentWeather={weatherObj} currLocation={specifiedLocation} />
+          <ListView
+            currentWeather={weatherObj}
+            currLocation={specifiedLocation}
+            cityList={citiesArray}
+          />
         </div>
         <div className="col-sm-8 col-11 view-block rounded-4">
           <div className="row">

@@ -4,7 +4,7 @@ import './list-view.css';
 // 📝: Other Components
 import CityBadge from '../CityBadgeComponent/city-badge';
 
-function ListView({ currentWeather, currLocation }) {
+function ListView({ currentWeather, currLocation, cityList }) {
   console.log('\nIn List View');
   console.log(currLocation);
   return (
@@ -23,7 +23,7 @@ function ListView({ currentWeather, currLocation }) {
           </button>
         </div>
       </div>
-      <CityBadge cityObj={currLocation} />
+      <CityBadge cities={cityList} />
     </>
   );
 }
