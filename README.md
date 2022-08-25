@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Weather Application where User's can search for weather information in their favorite cities
 
 ## My First Pull Request
 
