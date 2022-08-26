@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700&display=swap');
 
 /* IDs */
 #emailHelp {
@@ -17,11 +17,16 @@ input {
 /* Classes */
 
 .account-form {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
+  max-width: 65%;
   margin: 50px auto;
   padding: 20px;
   background-color: #95e282;
+}
+
+#form {
+  width: 100%;
 }
 
 /* CSS for inside the form */
@@ -45,7 +50,7 @@ input {
 }
 
 .block-five {
-  min-width: 386px;
+  max-width: 386px;
   min-height: 120px;
 }
 
@@ -54,14 +59,14 @@ input {
 }
 
 .block-six {
-  width: 386px;
+  max-width: 386px;
+  /* min-width: 332px; */
 }
 
 .social-btns {
   /* display: flex */
   /* flex-direction: row; */
   justify-content: center;
-  width: 144px;
   height: 48px;
   padding: auto 10px;
   border: none;
