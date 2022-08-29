@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // 📝: FETCHES
 
@@ -17,11 +17,13 @@ class App extends Component {
     return (
       <div className="position-relative">
         <Header />
-        <Routes>
-          <Route exact path="/" element={<LoginForm />} />
-          <Route path="/create_account" element={<NewAccountForm />} />
-          <Route path="/page_view/*" element={<PageView />} />
-        </Routes>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<LoginForm />} />
+            <Route path="/create_account" element={<NewAccountForm />} />
+            <Route path="/page_view/*" element={<PageView />} />
+          </Routes>
+        </Router>
         <Footer />
       </div>
     );
