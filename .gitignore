@@ -11,8 +11,8 @@
 # production
 /build
 
-# architexture
-.fig
+# API keys
+.env
 
 # misc
 .DS_Store

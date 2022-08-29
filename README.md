@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Weatherfast by Ryan Moses
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Links
 
-## Available Scripts
+- **[Github](https://github.com/mosesrc/WeatherAppTTS-react.git)**
+- **[Jira](https://ryancmoses.atlassian.net/jira/software/projects/WEAT/boards/1/roadmap)**
 
-In the project directory, you can run:
+### `Project Description🗒️`
 
-### `npm start`
+- Weather Application where User's can search for weather information in their favorite cities
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Working Features and bugs🐛`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ##### **WORKING FEATURES:**
 
-### `npm test`
+  - User can route between main components of the application.
+  - The main components that are to available consist of the weekly and daily views as well as the create account and login forms.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ##### **BUGS:**
 
-### `npm run build`
+  - Data is not persisting in the application.
+  - Forms do not collect any data.
+  - Weather information is not displayed in the application.
+  - User profile page and links are not setup.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Tech Stack🏗️`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- HTML, CSS AND JavaScript
+- REACT
+- NODE.js
+- BOOTSTRAP/BOOTSTRAP ICONS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## `Screenshots of Application🖼️`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Login Form
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![WeatherFast Login Form](/version-hist/v1-screenshots/loginform.png 'Login Form')
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### New Account Form
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![WeatherFast New Account Form](/version-hist/v1-screenshots/createaccount.png 'New Account Form')
 
-## Learn More
+#### Weekly View
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![WeatherFast Weekly View](/version-hist/v1-screenshots/weekview.png 'Weekly View')
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Daily View
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![WeatherFast Daily View](/version-hist/v1-screenshots/dailyview.png 'Daily View')
