@@ -55,8 +55,8 @@ function PageView(props) {
             </div>
           </div>
           <div className="row d-flex justify-content-center align-items-center mt-3">
-            {pathName.includes('weekly_view') ? <WeeklyView /> : <div />}
-            {pathName.includes('daily_view') ? <DailyView /> : <div />}
+            {pathName.includes('weekly_view') ? <WeeklyView weatherObj={null} /> : <div />}
+            {pathName.includes('daily_view') ? <DailyView weatherObj={null} /> : <div />}
             {citiesArray.length === 0 ? emptyList() : <div />}
           </div>
         </div>
