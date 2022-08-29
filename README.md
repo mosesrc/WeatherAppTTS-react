@@ -2,8 +2,8 @@
 
 ## Project Links
 
-- \*\*[Github](https://github.com/mosesrc/WeatherAppTTS-react.git)
-- \*\*[Jira](https://ryancmoses.atlassian.net/jira/software/projects/WEAT/boards/1/roadmap)
+- **[Github](https://github.com/mosesrc/WeatherAppTTS-react.git)**
+- **[Jira](https://ryancmoses.atlassian.net/jira/software/projects/WEAT/boards/1/roadmap)**
 
 ### `Project Description🗒️`
 
