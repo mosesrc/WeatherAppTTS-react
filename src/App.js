@@ -17,13 +17,11 @@ class App extends Component {
     return (
       <div className="position-relative">
         <Header />
-        <Router>
-          <Routes>
-            <Route exact path="/" element={<LoginForm />} />
-            <Route path="/create_account" element={<NewAccountForm />} />
-            <Route path="/page_view/*" element={<PageView />} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route exact path="/" element={<LoginForm />} />
+          <Route path="/create_account" element={<NewAccountForm />} />
+          <Route path="/page_view/*" element={<PageView />} />
+        </Routes>
         <Footer />
       </div>
     );

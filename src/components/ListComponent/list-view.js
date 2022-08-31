@@ -4,11 +4,10 @@ import './list-view.css';
 // 📝: Other Components
 import CityBadge from '../CityBadgeComponent/city-badge';
 
-function ListView({ searchForCity, cityList }) {
-  console.log('List View = ' + JSON.stringify(cityList));
-  const [inputValue, setInputValue] = useState('');
+function ListView({ searchForCity, cityList, setCity }) {
+  // console.log('\nIn List View');
 
-  console.log('\nIn List View');
+  const [inputValue, setInputValue] = useState('');
 
   const handleChange = evt => {
     setInputValue(evt.target.value);
@@ -39,7 +38,7 @@ function ListView({ searchForCity, cityList }) {
           </button>
         </div>
       </div>
-      <CityBadge cities={cityList} />
+      <CityBadge cities={cityList} setCity={setCity} />
     </>
   );
 }

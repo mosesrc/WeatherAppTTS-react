@@ -17,17 +17,21 @@ function PageView(props) {
 
   // 📝: STATE FOR CITIES ARRAY
   const [citiesArray, setCitiesArray] = useState([]);
+  const [city, setCity] = useState({});
 
   // 📝: Search for city in US
   async function searchForUSCity(searchValue) {
-    console.log('New Search For City Function, Search Value is:  ' + searchValue);
-    console.log('URL: ' + config.byAnyUsCity);
     const response = await fetch(config.byAnyUsCity + `q=${searchValue},us&appid=${config.apiKey}`);
-
     const data = await response.json();
-    console.log('\nNew Search For City Function, Data receivied is');
-    console.log(data);
     setCitiesArray(arr => [...arr, data]);
+  }
+
+  async function getfiveDayForecast({ coord: { lon, lat } }) {
+    console.log('\nIn getfiveDayForecast -- NEW LOG');
+    console.log('Latitude: ' + lat);
+    console.log('Longitude: ' + lon);
+
+    console.log('\nEND FORECAST LOG');
   }
 
   // 📝: Empty list Message
@@ -41,22 +45,26 @@ function PageView(props) {
       </div>
     );
   };
-  console.log('Page View: ' + JSON.stringify(citiesArray));
+
   return (
     <div className="container-fluid page-view position-relative pb-3">
       <div className="row pt-4 d-flex justify-content-center">
         <div className="col-4 d-none d-md-inline-block d-flex flex-column p-4 list-block rounded-4">
-          <ListView searchForCity={searchForUSCity} cityList={citiesArray} />
+          <ListView searchForCity={searchForUSCity} cityList={citiesArray} setCity={setCity} />
         </div>
         <div className="col-sm-8 col-11 view-block rounded-4">
           <div className="row">
             <div className="col mt-1 d-none d-md-flex d-flex justify-content-center">
-              <ToggleButtons />
+              {citiesArray.length !== 0 ? <ToggleButtons /> : <div />}
             </div>
           </div>
           <div className="row d-flex justify-content-center align-items-center mt-3">
-            {pathName.includes('weekly_view') ? <WeeklyView weatherObj={null} /> : <div />}
-            {pathName.includes('daily_view') ? <DailyView weatherObj={null} /> : <div />}
+            {pathName.includes('weekly_view') ? <WeeklyView clickedCity={city} /> : <div />}
+            {pathName.includes('daily_view') ? (
+              <DailyView cityList={citiesArray} clickedCity={city} />
+            ) : (
+              <div />
+            )}
             {citiesArray.length === 0 ? emptyList() : <div />}
           </div>
         </div>

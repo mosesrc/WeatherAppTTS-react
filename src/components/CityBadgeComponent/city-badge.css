@@ -10,6 +10,10 @@
   height: 90px;
 }
 
+.city-badge > * {
+  pointer-events: none;
+}
+
 .city-badge p {
   margin: 0;
 }
