@@ -3,17 +3,22 @@ import './city-badge.css';
 
 function CityBadge({ cities, setCity }) {
   // console.log('\nIn City Badge');
-  const [ifSelected, setIfSetSelected] = useState(true);
+  // console.log(cities);
+  // console.log('\nOut of City Badge');
+  const [ifSelected, setIfSetSelected] = useState(false);
 
   // 📝: FUNCTION TO SEND BACK INFORMATION
   const handleClick = async evt => {
     let index = Number(evt.target.dataset.cityObj);
-    await setCity(cities[index]);
+    await setIfSetSelected(true);
+    await setCity(cities[index][0]);
   };
 
   return (
     <>
       {cities.map((item, idx) => {
+        // console.log('\nItem in array to display badges: ');
+        // console.log(item);
         return (
           <div
             onClick={handleClick}
@@ -22,7 +27,9 @@ function CityBadge({ cities, setCity }) {
             data-city-obj={idx}
           >
             <i className="bi bi-geo-alt"></i>
-            <p>{item.name}</p>
+            <p>
+              {item[1].name}, {item[2].abbreviation}
+            </p>
             {ifSelected ? (
               <i className="bi bi-caret-right-fill arrow-icon"></i>
             ) : (

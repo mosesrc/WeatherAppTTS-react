@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './daily-view.css';
 
 // 📝: ICONS
-import { ReactComponent as SunIcon } from '../../assets/svg/form_icons/sun-dynamic-color.svg';
 import { ReactComponent as SmallSun } from '../../assets/svg/form_icons/small-sun.svg';
 
 function DailyView({ clickedCity }) {

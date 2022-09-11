@@ -5,6 +5,9 @@ import { useLocation } from 'react-router-dom';
 // 📝: CONFIG FILE
 import { config } from '../../services/config';
 
+// 📝: lOCAL DATA
+import states from '../../data/stateAbbreviations';
+
 // 📝: VIEWS
 import ListView from '../ListComponent/list-view';
 import ToggleButtons from '../ToggleButtonsComponent/toggle-buttons';
@@ -22,8 +25,19 @@ function PageView(props) {
   // 📝: Search for city in US
   async function searchForUSCity(searchValue) {
     const response = await fetch(config.byAnyUsCity + `q=${searchValue},us&appid=${config.apiKey}`);
-    const data = await response.json();
-    setCitiesArray(arr => [...arr, data]);
+    const currentWeatherdata = await response.json();
+
+    // Get Location Object
+    const loactionResponse = await fetch(
+      config.byLocationUrl + `direct?q=${searchValue},us&limit=${5}&appid=${config.apiKey}`
+    );
+    const [locationObj] = await loactionResponse.json();
+    console.log(locationObj);
+
+    // REVIEW: this is just to get the state abbreviation
+    const stateInfo = states.find(el => el.name === locationObj.state);
+
+    setCitiesArray(arr => [...arr, [currentWeatherdata, locationObj, stateInfo]]);
   }
 
   async function getfiveDayForecast({ coord: { lon, lat } }) {
